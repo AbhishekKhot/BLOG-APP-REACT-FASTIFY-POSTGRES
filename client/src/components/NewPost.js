@@ -20,6 +20,8 @@ export default function NewPost({ handleAddPost }) {
       date: new Date().toLocaleDateString(),
     };
     handleAddPost(newPost);
+    setPostTitle("");
+    setPostContent("");
     console.log(newPost);
   }
 
