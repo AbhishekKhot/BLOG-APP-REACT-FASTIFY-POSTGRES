@@ -1,9 +1,16 @@
 const fastify = require("fastify")({ logger: true });
 const db = require("./models");
+const cors = require("@fastify/cors");
+
+fastify.register(cors, {
+  origin: true,
+  method: "GET,POST,DELETE,PUT",
+  // origin: "http://localhost:3000",
+});
 
 const env = process.env.NODE_ENV || "development";
 if (env === "development") require("dotenv").config();
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 
 fastify.register(require("./routes/Blog"), { prefix: "/blogs" });
 

@@ -1,7 +1,7 @@
 import { data } from "../utils/data";
 import { useState } from "react";
 
-export default function NewPost() {
+export default function NewPost({ handleAddPost }) {
   var charLimit = 1000;
   const [postTitle, setPostTitle] = useState("");
   const [postContent, setPostContent] = useState("");
@@ -19,7 +19,7 @@ export default function NewPost() {
       content: postContent,
       date: new Date().toLocaleDateString(),
     };
-    data.push(newPost);
+    handleAddPost(newPost);
     console.log(newPost);
   }
 

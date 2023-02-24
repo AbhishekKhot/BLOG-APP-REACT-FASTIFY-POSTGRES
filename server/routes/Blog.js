@@ -23,7 +23,7 @@ module.exports = (fastify, option, done) => {
     schema: getBlogSchema,
     handler: getBlogHandler,
   });
-  fastify.get("", {
+  fastify.get("/", {
     schema: getBlogsSchema,
     handler: getAllBlogsHandler,
   });
